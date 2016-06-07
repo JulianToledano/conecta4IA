@@ -15,20 +15,22 @@ package julian.inteligenciaArtificial.conecta4;
 		
 	public void pintarTablero(){
 		for(int i = 0; i < 6; i++){
+			//System.out.println("----------------------------");
+			System.out.print("| ");
 			for(int j = 0; j < 7; j++)
-				System.out.print(tablero[i][j]);
-			System.out.println();
+				System.out.print(tablero[i][j] + " | ");
+			System.out.println("");
 		}
 	}
 	
-	public int introducirFicha(int columna, int jugador){
+	public void introducirFicha(int columna, int jugador){
 		if(!columnaLlena(columna)){
-			for(int i = 6; i >= 0; i--)
-				if(tablero[i][columna] == 0)
+			for(int i = 5; i >= 0; i--)
+				if(tablero[i][columna] == 0){
 					tablero[i][columna] = jugador;
-			return 0;
+					i = -1;
+				}
 		}
-		return -1;
 	}
 	
 	private boolean comprobarHorizontales(int jugador){
@@ -89,7 +91,7 @@ package julian.inteligenciaArtificial.conecta4;
 		return false;
 	}
 	
-	int victoria(int jugador){
+	public int victoria(int jugador){
 		if(comprobarVerticales(jugador) || comprobarHorizontales(jugador) || comprobarDiagonales(jugador))
 			return jugador;
 		return 0;
@@ -103,7 +105,14 @@ package julian.inteligenciaArtificial.conecta4;
 		return true;
 	}
 	
-	int utilidad(int jugador){
+	public boolean finPartida(){
+		if(tableroLleno()) return true;
+		else if(victoria(1) == 1) return true;
+		else if(victoria(2) == 2) return true;
+		else return false;
+	}
+	
+	public int utilidad(int jugador){
 		int oponente;
 		if(jugador == 1)oponente = 2;
 		else oponente = 1;
