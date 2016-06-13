@@ -3,16 +3,16 @@
 
 package julian.inteligenciaArtificial.conecta4;
 
-	public class Tablero {
-		int [][]tablero = new int[6][7];
+public class Tablero {
+	int [][]tablero = new int[6][7];
 		
-		public Tablero(){
-			for(int i = 0; i < 6; i++){
-				for(int j = 0; j < 7; j++)
-					tablero[i][j] = 0;
+	public Tablero(){
+		for(int i = 0; i < 6; i++){
+			for(int j = 0; j < 7; j++)
+				tablero[i][j] = 0;
 			}
 		}
-	/**
+		/**
 	 * Imprime el tablero en pantalla
 	 */
 	public void pintarTablero(){

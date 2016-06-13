@@ -12,13 +12,16 @@ public class Conecta4 {
 		maquina = new Maquina();
 	}
 	
+	/**
+	 * Da comienzo a la partida, alterna entre los turnos de la máquina y la persona
+	 */
 	public void jugar(){
 		
 		int turno = maquina.getTurno();
 		tablero.pintarTablero();
 		while(!tablero.finPartida()){
 			System.out.print("Es el turno del jugador " + turno);
-			if(turno == 1){
+			if(turno == 1){ // Turno de la máquina
 				tablero.introducirFicha(jugador.elegirColumna()-1,turno);
 				turno += 1;
 			}
