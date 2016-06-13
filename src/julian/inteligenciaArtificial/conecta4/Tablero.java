@@ -15,7 +15,6 @@ package julian.inteligenciaArtificial.conecta4;
 		
 	public void pintarTablero(){
 		for(int i = 0; i < 6; i++){
-			//System.out.println("----------------------------");
 			System.out.print("| ");
 			for(int j = 0; j < 7; j++)
 				System.out.print(tablero[i][j] + " | ");
@@ -41,6 +40,7 @@ package julian.inteligenciaArtificial.conecta4;
 				else iguales = 0;
 				if(iguales == 4) return true;
 			}
+			iguales = 0;
 		}
 		return false;
 	}
@@ -53,6 +53,7 @@ package julian.inteligenciaArtificial.conecta4;
 				else iguales = 0;
 				if(iguales == 4)return true;
 			}
+			iguales = 0;
 		}
 		return false;
 	}
@@ -112,6 +113,7 @@ package julian.inteligenciaArtificial.conecta4;
 		else return false;
 	}
 	
+	/*
 	public int utilidad(int jugador){
 		int oponente;
 		if(jugador == 1)oponente = 2;
@@ -119,6 +121,12 @@ package julian.inteligenciaArtificial.conecta4;
 		if(tableroLleno()) return 0;
 		else if(victoria(jugador) == jugador) return 1;
 		else if(victoria(oponente) == oponente)return -1;
+		else return 0;
+	}*/
+	
+	public int utilidad(){
+		if(victoria(1) == 1) return -1;
+		else if(victoria(2) == 2) return 1;
 		else return 0;
 	}
 	
