@@ -28,7 +28,7 @@ public class Conecta4 {
 			}
 			tablero.pintarTablero();
 			if(tablero.victoria(turno)!= 0){
-				System.out.print("Ha ganado el jugadir " + turno);
+				System.out.print("Ha ganado el jugador " + turno);
 			}
 		}
 		System.out.print("Se acabo el juego");
