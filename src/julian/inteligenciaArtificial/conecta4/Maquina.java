@@ -16,4 +16,6 @@ public class Maquina {
 	public int getTurno(){
 		return turno;
 	}
+	
+
 }
