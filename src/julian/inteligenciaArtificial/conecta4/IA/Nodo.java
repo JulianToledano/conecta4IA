@@ -5,21 +5,40 @@ import java.util.ArrayList;
 
 
 public class Nodo{
-	int profundidad;
-	Tablero estadoActual;
-	Nodo padre;
-	ArrayList<Nodo>hijos;
-
-	public Nodo(int profundidad, Tablero actual, Nodo padre){
-		this.profundidad = profundidad;
-		estadoActual = actual;
-		this.padre = padre;
-		hijos = new ArrayList<Nodo>();
+	protected Estado estado;
+	protected Nodo padre;
+	protected ArrayList<Nodo>hijos;
+	
+	public Nodo(Estado estado, Nodo padre){
+		this.estado = estado;
+		this.hijos = new ArrayList();
+		if((padre != null) && (!this.estado.equals(padre.estado))){
+			this.padre = padre;
+			this.padre.hijos.add(this);
+		}
 	}
 	
-	public void insertarHijos(int columna, int jugador){
-		Nodo nodoHijo = new Nodo(this.profundidad+1, estadoActual, this);
-		nodoHijo.estadoActual.introducirFicha(columna,jugador);
-		hijos.add(nodoHijo);
+	public Estado getElemento(){
+		return this.estado;
+	}
+	
+	public int getValor(){
+		return estado.getValor();
+	}
+	
+	public ArrayList<Nodo>expandir(){
+		ArrayList<Nodo>resultado = new ArrayList();
+		for(int i = 0; i < 7; i++){
+			if(!estado.estadoActual.finPartida()){
+				Estado estadoNuevoNodo = new Estado();
+				estadoNuevoNodo.setEstadoActual(estado.getEstadoActual());
+				if(estado.getTurno() == 1) estadoNuevoNodo.setTurno(2);
+				else estadoNuevoNodo.setTurno(1);
+				estadoNuevoNodo.estadoActual.introducirFicha(i, estadoNuevoNodo.getTurno());
+				Nodo hijo = new Nodo(estadoNuevoNodo,this);
+				resultado.add(hijo);
+			}
+		}
+		return resultado;
 	}
 }
