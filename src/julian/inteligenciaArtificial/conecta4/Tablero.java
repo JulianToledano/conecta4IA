@@ -3,16 +3,29 @@
 
 package julian.inteligenciaArtificial.conecta4;
 
-	public class Tablero {
-		int [][]tablero = new int[6][7];
-		
-		public Tablero(){
-			for(int i = 0; i < 6; i++){
-				for(int j = 0; j < 7; j++)
-					tablero[i][j] = 0;
+/**
+ * Esta clase representa el juego conecta4 al completo. Esto es: un tablero, dos jugadores (perona y AI) y administra los turno.
+ * @author Julián Toledano
+ * @version 15/06/2016 v 1.0
+ * @see <a href = "https://github.com/JulianToledano/conecta4IA/tree/master"
+ */
+public class Tablero {
+	int [][]tablero = new int[6][7];
+	
+	public Tablero(){
+		for(int i = 0; i < 6; i++){
+			for(int j = 0; j < 7; j++)
+				tablero[i][j] = 0;
 			}
-		}
-	/**
+	}
+	
+	public Tablero(Tablero tableroCopia){
+		for(int i = 0; i < 6; i++){
+			for(int j = 0; j < 7; j++)
+				tablero[i][j] = tableroCopia.tablero[i][j];
+			}
+	}
+		/**
 	 * Imprime el tablero en pantalla
 	 */
 	public void pintarTablero(){
@@ -37,6 +50,7 @@ package julian.inteligenciaArtificial.conecta4;
 					i = -1;
 				}
 		}
+	
 	}
 	
 	/**
@@ -164,24 +178,13 @@ package julian.inteligenciaArtificial.conecta4;
 		else return false;
 	}
 	
-	/*
-	public int utilidad(int jugador){
-		int oponente;
-		if(jugador == 1)oponente = 2;
-		else oponente = 1;
-		if(tableroLleno()) return 0;
-		else if(victoria(jugador) == jugador) return 1;
-		else if(victoria(oponente) == oponente)return -1;
-		else return 0;
-	}*/
-	
 	/**
 	 * Valor heurístico para determinar  la utilidad de los movimientos
 	 * @return -1 si gana la máquinam 1 si gana la persona, 0 si empate
 	 */
 	public int utilidad(){
-		if(victoria(1) == 1) return -1;
-		else if(victoria(2) == 2) return 1;
+		if(victoria(1) == 1) return 1;
+		else if(victoria(2) == 2) return -1;
 		else return 0;
 	}
 	
@@ -190,7 +193,7 @@ package julian.inteligenciaArtificial.conecta4;
 	 * @param columna en la que se quiere insertar una ficha
 	 * @return false se si puede realizar el movimiento, true si está llena
 	 */
-	boolean columnaLlena(int columna){
+	public boolean columnaLlena(int columna){
 		if(tablero[0][columna] == 0)return false;
 		return true;
 	}
