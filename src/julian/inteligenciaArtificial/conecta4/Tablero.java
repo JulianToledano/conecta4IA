@@ -1,10 +1,7 @@
-// Esta clase se encarga de representar el tablero del juego. Entre sus funciones de encuentran la de pintar el tablero,
-// introducir las fichas en el él, comprobar si el juego ha terminado y en caso de haber un ganador verificar cual de ellos es.
-
 package julian.inteligenciaArtificial.conecta4;
 
 /**
- * Esta clase representa el juego conecta4 al completo. Esto es: un tablero, dos jugadores (perona y AI) y administra los turno.
+ * Esta clase se encarga de representar el tablero del juego e implementa toda la lógica.
  * @author Julián Toledano
  * @version 15/06/2016 v 1.0
  * @see <a href = "https://github.com/JulianToledano/conecta4IA/tree/master"

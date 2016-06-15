@@ -31,7 +31,7 @@ import julian.inteligenciaArtificial.conecta4.*;
  * </pre>
  * @author Julián Toledano
  * @version 15/06/2016 v 1.0
- * @see <a href = "https://github.com/JulianToledano/conecta4IA/tree/master>mio</a>
+ * @see <a href = "https://github.com/JulianToledano/conecta4IA/tree/master
  */
 public class Minimax {
 	
