@@ -5,13 +5,20 @@ package julian.inteligenciaArtificial.conecta4;
 
 public class Tablero {
 	int [][]tablero = new int[6][7];
-		
+	
 	public Tablero(){
 		for(int i = 0; i < 6; i++){
 			for(int j = 0; j < 7; j++)
 				tablero[i][j] = 0;
 			}
-		}
+	}
+	
+	public Tablero(Tablero tableroCopia){
+		for(int i = 0; i < 6; i++){
+			for(int j = 0; j < 7; j++)
+				tablero[i][j] = tableroCopia.tablero[i][j];
+			}
+	}
 		/**
 	 * Imprime el tablero en pantalla
 	 */
@@ -180,8 +187,8 @@ public class Tablero {
 	 * @return -1 si gana la máquinam 1 si gana la persona, 0 si empate
 	 */
 	public int utilidad(){
-		if(victoria(1) == 1) return -1;
-		else if(victoria(2) == 2) return 1;
+		if(victoria(1) == 1) return 1;
+		else if(victoria(2) == 2) return -1;
 		else return 0;
 	}
 	
@@ -190,7 +197,7 @@ public class Tablero {
 	 * @param columna en la que se quiere insertar una ficha
 	 * @return false se si puede realizar el movimiento, true si está llena
 	 */
-	boolean columnaLlena(int columna){
+	public boolean columnaLlena(int columna){
 		if(tablero[0][columna] == 0)return false;
 		return true;
 	}

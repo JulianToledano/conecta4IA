@@ -1,15 +1,20 @@
 // Esta clase representa el juego al completo, un tablero, dos jugadores (persona y máquina) y administra los turnos.
 package julian.inteligenciaArtificial.conecta4;
 
+import julian.inteligenciaArtificial.conecta4.IA.*;
+
+
 public class Conecta4 {
 	Tablero tablero;
 	Jugador jugador;
 	Maquina maquina;
+	Minimax test;
 	
 	public Conecta4(){
 		tablero = new Tablero();
 		jugador = new Jugador();
 		maquina = new Maquina();
+		test = new Minimax();
 	}
 	
 	/**
@@ -20,9 +25,15 @@ public class Conecta4 {
 		int turno = maquina.getTurno();
 		tablero.pintarTablero();
 		while(!tablero.finPartida()){
-			System.out.print("Es el turno del jugador " + turno);
+			System.out.println("Es el turno del jugador " + turno);
 			if(turno == 1){ // Turno de la máquina
-				tablero.introducirFicha(jugador.elegirColumna()-1,turno);
+				int movimiento;
+				Tablero copia = new Tablero(tablero);
+				do{
+				movimiento = test.minimax(copia,turno,0,5);
+				System.out.println("La maquina elige " + movimiento+1);
+				}while(tablero.columnaLlena(movimiento));
+				tablero.introducirFicha(movimiento,turno);
 				turno += 1;
 			}
 			else{
@@ -35,6 +46,12 @@ public class Conecta4 {
 			}
 		}
 		System.out.print("Se acabo el juego");
+	}
+	
+	public int minimax(){
+		
+		
+		return 0;
 	}
 }
 
