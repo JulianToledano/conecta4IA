@@ -1,9 +1,13 @@
-// Esta clase representa el juego al completo, un tablero, dos jugadores (persona y máquina) y administra los turnos.
 package julian.inteligenciaArtificial.conecta4;
 
 import julian.inteligenciaArtificial.conecta4.IA.*;
 
-
+/**
+ * Esta clase representa el juego conecta4 al completo. Esto es: un tablero, dos jugadores (perona y AI) y administra los turno.
+ * @author Julián Toledano
+ * @version 15/06/2016 v 1.0
+ * @see <a href = "https://github.com/JulianToledano/conecta4IA/tree/master"
+ */
 public class Conecta4 {
 	Tablero tablero;
 	Jugador jugador;
@@ -16,7 +20,8 @@ public class Conecta4 {
 	}
 	
 	/**
-	 * Da comienzo a la partida, alterna entre los turnos de la máquina y la persona
+	 * Da comienzo a la partida, alterna entre los turnos de la máquina y la persona.
+	 * LLama a la función minimax desde la clase Maquina
 	 */
 	public void jugar(){
 		

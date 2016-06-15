@@ -3,6 +3,12 @@
 
 package julian.inteligenciaArtificial.conecta4;
 
+/**
+ * Esta clase representa el juego conecta4 al completo. Esto es: un tablero, dos jugadores (perona y AI) y administra los turno.
+ * @author Julián Toledano
+ * @version 15/06/2016 v 1.0
+ * @see <a href = "https://github.com/JulianToledano/conecta4IA/tree/master"
+ */
 public class Tablero {
 	int [][]tablero = new int[6][7];
 	
@@ -171,17 +177,6 @@ public class Tablero {
 		else if(victoria(2) == 2) return true;
 		else return false;
 	}
-	
-	/*
-	public int utilidad(int jugador){
-		int oponente;
-		if(jugador == 1)oponente = 2;
-		else oponente = 1;
-		if(tableroLleno()) return 0;
-		else if(victoria(jugador) == jugador) return 1;
-		else if(victoria(oponente) == oponente)return -1;
-		else return 0;
-	}*/
 	
 	/**
 	 * Valor heurístico para determinar  la utilidad de los movimientos
