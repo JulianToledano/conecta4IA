@@ -34,7 +34,7 @@ public class Minimax {
 	
 	// Comprobar que una columna está llena y no elegirla
 	
-	int maxValue(Tablero estado, int jugador, int pro, int proMax){
+	private int maxValue(Tablero estado, int jugador, int pro, int proMax){
 		if(estado.finPartida() || pro == proMax)return estado.utilidad();
 		int mejorPuntuacion = -10000;
 		int mejorPuntuacionTemporal;

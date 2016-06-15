@@ -1,4 +1,0 @@
-Comienza la implementación del algortimo de búsqueda. Para ello lo primero que tenemos que hacer es ç
-contruir la estructura de datos necesaria. En este caso será necesario crear un árbol en el que se alberguen elementos que continen
-la información sobre un estado del juego.
-Una vez creado esto implementaremos el algoritmo Alpha-Beta pruning. Un algoritmo mejorado del minimax.
