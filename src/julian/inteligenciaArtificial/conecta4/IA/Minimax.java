@@ -20,11 +20,11 @@ public class Minimax {
 			
 			if(mejorMovimientoTemporal > mejorMovimiento && !estado.columnaLlena(i)){	// Como el método introducirFicha(columna,jugador) no proporciona ningún control
 				mejorMovimiento = mejorMovimientoTemporal;								// sobre la elección de una columna llena, debemos asegurarnos de que la IA no selecciona
-				resultado = i;															// 
+				resultado = i;															 
 			}
 			
-			estado = new Tablero(temporal);		// Se necesita poner el tablero al estado inicial. De lo contrario se guarda 
-												// el movimiento respecto a las demás llamadas recursivas.
+			estado = new Tablero(temporal);												// Se necesita poner el tablero al estado inicial. De lo contrario se guarda 
+																						// el movimiento respecto a las demás llamadas recursivas.
 			
 		}
 		
@@ -58,7 +58,7 @@ public class Minimax {
 		return mejorPuntuacion; // Devuelve un valor uutilidad
 	}
 	
-	int minValue(Tablero estado, int jugador, int pro, int proMax){
+	private int minValue(Tablero estado, int jugador, int pro, int proMax){
 		if(estado.finPartida() || pro == proMax)return estado.utilidad();
 		int mejorPuntuacion = 10000;
 		int mejorPuntuacionTemporal;
