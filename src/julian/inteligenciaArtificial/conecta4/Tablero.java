@@ -44,6 +44,7 @@ public class Tablero {
 					i = -1;
 				}
 		}
+	
 	}
 	
 	/**
